@@ -5,7 +5,7 @@ import { AuthRequest } from '../types';
 
 const signToken = (id: string): string =>
   jwt.sign({ id }, process.env.JWT_SECRET as string, {
-    expiresIn: process.env.JWT_EXPIRES_IN || '7d',
+    expiresIn: (process.env.JWT_EXPIRES_IN || '7d') as any,
   });
 
 export const register = async (
